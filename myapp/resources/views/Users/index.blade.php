@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
     @if (session('succes'))
     <div class="alert alert-success m-3">
         {{ session('succes') }}
@@ -27,6 +28,8 @@
         {{ session('delete') }}
     </div>
     @endif
+
+    
 
       <div class="p-12">
           <div class="relative flex flex-col w-full h-full text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">

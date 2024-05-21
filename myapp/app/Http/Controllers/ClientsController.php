@@ -12,8 +12,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        return view('Layout.Home');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,9 +35,12 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Clients $clients)
-    {
-        //
+   
+    public function docs(){
+        return view('Layout.docs');
+    }
+    public function contact(){
+        return view('Layout.contact');
     }
 
     /**

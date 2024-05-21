@@ -30,6 +30,12 @@
 </div>
 @endif
 
+@if (session('yes'))
+    <div class="alert alert-danger m-3">
+       {{'Bienvennu' .' '. auth()->user()->name}}
+    </div>
+    @endif
+
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="flex flex-col">
       <div class="-m-1.5 overflow-x-auto">

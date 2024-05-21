@@ -92,9 +92,9 @@ class UserController extends Controller
         }
     }
     public function Deconnecter(Request $request){
-        Auth::logout();
         Session::flush();
-        return redirect()->route('Layout.Home')->with('dec','Deconnexion avec succes');
+        Auth::logout();
+        return redirect()->route('Layout.index')->with('dec','Deconnexion avec succes');
     }
 
 }
