@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[ClientsController::class,'index'])->name('Layout.index');
 Route::get('/contact',[ClientsController::class,'contact'])->name('Layout.contact');
 Route::get('/docs',[ClientsController::class,'docs'])->name('Layout.docs');
+Route::get('/dashboard',[ClientsController::class,'dashboard'])->name('Layout.dashboard');
+Route::get('/calendar',[ClientsController::class,'calendar'])->name('Layout.calendar');
+Route::get('/blank',[ClientsController::class,'blank'])->name('Layout.blank');
+Route::get('/tables',[ClientsController::class,'tables'])->name('Layout.tables');
+Route::get('/forms',[ClientsController::class,'forms'])->name('Layout.forms');
+Route::get('/tabs',[ClientsController::class,'tabs'])->name('Layout.tabs');
+
 
 
 Route::get('/produits',[ProduitsController::class,'index'])->name('Produits.index');

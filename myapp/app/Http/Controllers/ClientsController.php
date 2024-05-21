@@ -14,56 +14,29 @@ class ClientsController extends Controller
     {
         return view('Layout.Home');
     }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-   
     public function docs(){
         return view('Layout.docs');
     }
     public function contact(){
         return view('Layout.contact');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Clients $clients)
-    {
-        //
+    public function dashboard(){
+        return view('Layout.Dashboard.index');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Clients $clients)
-    {
-        //
+    public function calendar(){
+        return view('Layout.Dashboard.calendar');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Clients $clients)
-    {
-        //
+    public function blank(){
+        return view('Layout.Dashboard.blank');
+    }
+    public function tables(){
+        return view('Layout.Dashboard.tables');
+    }
+    public function forms(){
+        return view('Layout.Dashboard.forms');
+    }
+    public function tabs(){
+        return view('Layout.Dashboard.tabs');
     }
 }
+
