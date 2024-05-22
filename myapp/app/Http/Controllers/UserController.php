@@ -69,25 +69,26 @@ class UserController extends Controller
         ]);
     }
 
-    public function connecter(){
+    public function showLoginForm()
+    {
         return view('Layout.Login');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $email = $request->email;
         $password = $request->password;
-        $form = [
+        $credentials = [
             'email' => $email,
-            'password' => $password
+            'password' => $password,
         ];
-        Hash::make($password);
-        if(Auth::attempt($form)){
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('Produits.index')->with('yes','Bienvennu');
-        }
-        else{
+            return redirect()->route('Produits.index')->with('yes', 'Bienvenue');
+        } else {
             return back()->withErrors([
-                'email' => 'email / password incorrect , try again !!'
+                'email' => 'Email / mot de passe incorrect, veuillez réessayer !',
             ]);
         }
     }

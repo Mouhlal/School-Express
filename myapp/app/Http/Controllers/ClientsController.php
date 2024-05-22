@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clients;
+use App\Models\Produits;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
@@ -21,7 +23,10 @@ class ClientsController extends Controller
         return view('Layout.contact');
     }
     public function dashboard(){
-        return view('Layout.Dashboard.index');
+        $user = User::get();
+        return view('Layout.Dashboard.index',[
+            'user' => $user
+        ]);
     }
     public function calendar(){
         return view('Layout.Dashboard.calendar');
@@ -30,7 +35,12 @@ class ClientsController extends Controller
         return view('Layout.Dashboard.blank');
     }
     public function tables(){
-        return view('Layout.Dashboard.tables');
+        $user = User::get();
+        $produits = Produits::with('Categories')->get();
+        return view('Layout.Dashboard.tables',[
+            'user' => $user ,
+            'produits' => $produits
+        ]);
     }
     public function forms(){
         return view('Layout.Dashboard.forms');

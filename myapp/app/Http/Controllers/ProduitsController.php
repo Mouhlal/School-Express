@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Produits;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,10 @@ class ProduitsController extends Controller
     }
 
     public function ajouter(){
-        return view('Produits.add');
+        $categories = Categories::all();
+        return view('Produits.add',[
+            'categories' => $categories
+        ]);
     }
     public function store(Request $request){
         $form = $request->validate([
@@ -46,7 +50,7 @@ class ProduitsController extends Controller
             'image' => 'image|required',
             'description' => 'required',
             'prix' => 'required|numeric',
-            'quantite' => 'required|numerci',
+            'quantite' => 'required|numeric',
             'categories_id' => 'required'
         ]);
         $form['image'] = $request->file('image')->store('produits','public');

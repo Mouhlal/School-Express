@@ -5,32 +5,41 @@ use App\Http\Controllers\ProduitsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[ClientsController::class,'index'])->name('Layout.index');
-Route::get('/contact',[ClientsController::class,'contact'])->name('Layout.contact');
-Route::get('/docs',[ClientsController::class,'docs'])->name('Layout.docs');
-Route::get('/dashboard',[ClientsController::class,'dashboard'])->name('Layout.dashboard');
-Route::get('/calendar',[ClientsController::class,'calendar'])->name('Layout.calendar');
-Route::get('/blank',[ClientsController::class,'blank'])->name('Layout.blank');
-Route::get('/tables',[ClientsController::class,'tables'])->name('Layout.tables');
-Route::get('/forms',[ClientsController::class,'forms'])->name('Layout.forms');
-Route::get('/tabs',[ClientsController::class,'tabs'])->name('Layout.tabs');
+Route::controller(ClientsController::class)->group(function(){
+    Route::get('/','index')->name('Layout.index');
+    Route::get('/contact','contact')->name('Layout.contact');
+    Route::get('/docs','docs')->name('Layout.docs');
+    Route::get('/dashboard','dashboard')->name('Layout.dashboard')->middleware('auth');
+    Route::get('/calendar','calendar')->name('Layout.calendar')->middleware('auth');
+    Route::get('/blank','blank')->name('Layout.blank')->middleware('auth');
+    Route::get('/tables','tables')->name('Layout.tables')->middleware('auth');
+    Route::get('/forms','forms')->name('Layout.forms')->middleware('auth');
+    Route::get('/tabs','tabs')->name('Layout.tabs')->middleware('auth');
+});
 
 
+Route::controller(ProduitsController::class)->group(function(){
+    Route::get('/produits','index')->name('Produits.index')->middleware('auth');
+    Route::get('/produits/delete/{id}','delete')->name('Produits.delete')->middleware('auth');
+    Route::get('/produits/edit/{id}','edit')->name('Produits.edit')->middleware('auth');
+    Route::post('/produits/update/{id}','update')->name('Produits.update')->middleware('auth');
+    Route::get('/produits/ajouter','ajouter')->name('Produits.ajouter')->middleware('auth');
+    Route::post('/produits/store','store')->name('Produits.store')->middleware('auth');
+});
 
-Route::get('/produits',[ProduitsController::class,'index'])->name('Produits.index');
-Route::get('/produits/delete/{id}',[ProduitsController::class,'delete'])->name('Produits.delete');
-Route::get('/produits/edit/{id}',[ProduitsController::class,'edit'])->name('Produits.edit');
-Route::post('/produits/update/{id}',[ProduitsController::class,'update'])->name('Produits.update');
-Route::get('/produits/ajouter',[ProduitsController::class,'ajouter'])->name('Produits.ajouter');
-Route::post('/produits/store',[ProduitsController::class,'store'])->name('Produits.store');
 
+Route::controller(UserController::class)->group(function(){
+    Route::get('/users','index')->name('Users.index')->middleware('auth');
+    Route::get('/users/add','add')->name('Users.add')->middleware('auth');
+    Route::post('/store','store')->name('Users.store')->middleware('auth');
+    Route::get('/edit/{id}','edit')->name('Users.edit')->middleware('auth');
+    Route::post('/update/{id}','update')->name('Users.update')->middleware('auth');
+    Route::get('/delete/{id}','delete')->name('Users.delete')->middleware('auth');
 
-Route::get('/users',[UserController::class,'index'])->name('Users.index');
-Route::get('/users/add',[UserController::class,'add'])->name('Users.add')->middleware('auth');
-Route::post('/store',[UserController::class,'store'])->name('Users.store')->middleware('auth');
-Route::get('/edit/{id}',[UserController::class,'edit'])->name('Users.edit')->middleware('auth');
-Route::post('/update/{id}',[UserController::class,'update'])->name('Users.update')->middleware('auth');
-Route::get('/delete/{id}',[UserController::class,'delete'])->name('Users.delete')->middleware('auth');
-Route::get('/users/connecter',[UserController::class,'connecter'])->name('Users.connecter');
-Route::post('/users/login',[UserController::class,'login'])->name('Users.login');
-Route::get('/users/deconnecter',[UserController::class,'deconnecter'])->name('Users.deconnecter');
+    Route::get('/login','showLoginForm')->name('login');
+    Route::post('/login','login')->name('Users.login');
+
+    Route::get('/users/deconnecter','deconnecter')->name('Users.deconnecter')->middleware('auth');
+    Route::get('/users/{id}','profile')->name('Users.profile')->middleware('auth');
+
+});
