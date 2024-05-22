@@ -8,10 +8,19 @@ use Illuminate\Http\Request;
 
 class ProduitsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produits = Produits::with('categories')->get();
-        return view('Produits.index', compact('produits'));
+            $category_id = $request->input('category_id');
+            $categories = Categories::all();
+
+            if ($category_id) {
+                $produits = Produits::where('categories_id', $category_id)->with('categories')->get();
+            } else {
+                $produits = Produits::with('categories')->get();
+            }
+
+            return view('Produits.index', compact('produits', 'categories', 'category_id'));
+
     }
 
     public function delete($id)
