@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
     <title>Products</title>
 </head>
@@ -33,10 +32,10 @@
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <form action="{{ route('Produits.index') }}" method="GET" class="mb-4">
-        <div class="row">
-            <div class="col-md-4">
-                <select name="category_id" class="form-control">
-                    <option value="">-- All Categories --</option>
+        <div class="flex items-center">
+            <div class="mr-4">
+                <select name="category_id" class="py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                    <option value="">All Categories</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}" {{ $category->id == $category_id ? 'selected' : '' }}>
                             {{ $category->type }}
@@ -44,11 +43,14 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">Filter</button>
+            <div>
+                <button type="submit" class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:shadow-outline">
+                    Filter
+                </button>
             </div>
         </div>
     </form>
+
 
     <div class="flex flex-col">
       <div class="-m-1.5 overflow-x-auto">
