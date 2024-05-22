@@ -8,53 +8,72 @@ use Illuminate\Http\Request;
 
 class ProduitsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $produits = Produits::with('categories')->get();
         return view('Produits.index', compact('produits'));
     }
-    public function delete($id){
+
+    public function delete($id)
+    {
         Produits::findOrFail($id)->delete();
-        return redirect()->route('Produits.index')->with('drop','Supression de Produit avec succes');
-    }
-    public function edit($id){
-        $produits = Produits::findOrFail($id);
-        return view('Produits.edit',[
-            'produits' => $produits
-        ]);
-    }
-    public function update(Request $request ,$id){
-        $field = $request->validate([
-            'name' => 'nullable',
-            'image' => 'image|nullable',
-            'description' => 'nullable',
-            'prix' => 'nullable|numeric',
-            'quantite' => 'nullable|numerci',
-            'categories_id' => 'nullable'
-        ]);
-        if($request->hasFile('image')){
-            $field['image'] = $request->file('image')->store('produits','public');
-        }
-        $produits = Produits::findOrFail($id)->update($field);
-        return view('Produits.index',['produits'=>$produits])->with('succes','Modification avec succes');
+        return redirect()->route('Produits.index')->with('drop', 'Suppression de Produit avec succès');
     }
 
-    public function ajouter(){
+    public function edit($id)
+    {
+        $produits = Produits::findOrFail($id);
         $categories = Categories::all();
-        return view('Produits.add',[
+        return view('Produits.edit', [
+            'produits' => $produits,
             'categories' => $categories
         ]);
     }
-    public function store(Request $request){
-        $form = $request->validate([
-            'name' => 'required',
-            'image' => 'image|required',
-            'description' => 'required',
-            'prix' => 'required|numeric',
-            'quantite' => 'required|numeric',
-            'categories_id' => 'required'
+    public function update(Request $request, $id)
+    {
+        $fields = $request->validate([
+            'name' => 'nullable|string',
+            'image' => 'nullable|image',
+            'description' => 'nullable|string',
+            'prix' => 'nullable|integer',
+            'quantite' => 'nullable|integer',
+            'categories_id' => 'nullable|exists:categories,id'
         ]);
-        $form['image'] = $request->file('image')->store('produits','public');
-        Produits::create($form);
-        return view('Produits.index')->with('add','Ajoutation avec succes');
+
+        if ($request->hasFile('image')) {
+            $fields['image'] = $request->file('image')->store('produits', 'public');
+        }
+
+        $produits = Produits::findOrFail($id);
+        $produits->update($fields);
+
+        return redirect()->route('Produits.index')->with('success', 'Modification avec succès');
+    }
+
+
+    public function ajouter()
+    {
+        $categories = Categories::all();
+        return view('Produits.add', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => 'required|string',
+            'image' => 'required|image',
+            'description' => 'required|string',
+            'prix' => 'required|integer',
+            'quantite' => 'required|numeric',
+            'categories_id' => 'required|exists:categories,id'
+        ]);
+
+        $attributes['image'] = $request->file('image')->store('produits', 'public');
+
+        Produits::create($attributes);
+
+        return redirect()->route('Produits.index')->with('add', 'Ajoutation avec succès');
     }
 }

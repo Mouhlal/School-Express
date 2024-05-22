@@ -49,5 +49,12 @@ class ClientsController extends Controller
     public function tabs(){
         return view('Layout.Dashboard.tabs');
     }
+    public function collections(){
+        $categories = request('cat');
+        $produits = Produits::with('categories')->get();
+        return view('Produits.collections',[
+            'produits' => $produits
+        ]);
+    }
 }
 

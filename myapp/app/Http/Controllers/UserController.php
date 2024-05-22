@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     public function index(){
-        $user = User::paginate(6);
+        $user = User::get();
         $search = request('search');
         if ($search) {
             $user = User::where('name', 'like', "%{$search}%")

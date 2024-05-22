@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-
+  @vite('resources/css/app.css')
   <!-- Font Awesome if you need it
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   -->

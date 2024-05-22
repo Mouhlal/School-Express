@@ -10,6 +10,7 @@
 </head>
 <body>
 
+    @include('Layout.nav')
 
     @if (session('succes'))
     <div class="alert alert-success m-3">
@@ -48,7 +49,7 @@
                   <button
                     class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button">
-                    view all
+                    <a href="{{route('Users.index')}}">view all</a>
                   </button>
                   <a href="{{route('Users.add')}}">
                       <button
@@ -172,16 +173,22 @@
                   <tr>
                     <td class="p-4 border-b border-blue-gray-50">
                       <div class="flex items-center gap-3">
+                        <a href="{{route('Users.profile' ,$use->id)}}" title="voir profile">
                         <img src="{{ asset('storage/'.$use->image) }}"
-                        {{-- src="https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg"  --}}alt="{{ $use->name }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center" />
+                        alt="{{ $use->name }}" class="relative inline-block h-9 w-9 rounded-full object-cover object-center" />
+                        </a>
                         <div class="flex flex-col">
-                          <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                           {{$use->name}}
-                          </p>
-                          <p
-                            class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
-                           {{$use->email}}
-                          </p>
+                          <a href="{{route('Users.profile' ,$use->id)}}" title="voir profile">
+                              <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                               {{$use->name}}
+                              </p>
+                          </a>
+                          <a href="mailto:{{$use->email}}" title="send mail">
+                              <p
+                                class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 opacity-70">
+                               {{$use->email}}
+                              </p>
+                          </a>
                         </div>
                       </div>
                     </td>
@@ -234,9 +241,9 @@
               </table>
             </div>
             <div class="flex items-center justify-between p-4 border-t border-blue-gray-50">
-              <p class="text-sm text-gray-600">
-              
-              </p>
+             {{--  <p class="text-sm text-gray-600">
+                {{ $use->appends(['search' => $search])->links() }}
+              </p> --}}
 
             </div>
           </div>

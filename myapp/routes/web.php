@@ -17,16 +17,14 @@ Route::controller(ClientsController::class)->group(function(){
     Route::get('/tabs','tabs')->name('Layout.tabs')->middleware('auth');
 });
 
-
 Route::controller(ProduitsController::class)->group(function(){
-    Route::get('/produits','index')->name('Produits.index')->middleware('auth');
-    Route::get('/produits/delete/{id}','delete')->name('Produits.delete')->middleware('auth');
-    Route::get('/produits/edit/{id}','edit')->name('Produits.edit')->middleware('auth');
-    Route::post('/produits/update/{id}','update')->name('Produits.update')->middleware('auth');
-    Route::get('/produits/ajouter','ajouter')->name('Produits.ajouter')->middleware('auth');
-    Route::post('/produits/store','store')->name('Produits.store')->middleware('auth');
+    Route::get('/produits', 'index')->name('Produits.index')->middleware('auth');
+    Route::get('/produits/delete/{id}', 'delete')->name('Produits.delete')->middleware('auth');
+    Route::get('/produits/edit/{id}', 'edit')->name('Produits.edit')->middleware('auth');
+    Route::put('/produits/update/{id}', 'update')->name('Produits.update')->middleware('auth');
+    Route::get('/produits/ajouter', 'ajouter')->name('Produits.ajouter')->middleware('auth');
+    Route::post('/produits/store', 'store')->name('Produits.store')->middleware('auth');
 });
-
 
 Route::controller(UserController::class)->group(function(){
     Route::get('/users','index')->name('Users.index')->middleware('isAdmin');

@@ -18,9 +18,13 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    @vite('resources/css/app.css')
 </head>
 
 <body>
+
+    @include('Layout.nav')
 
     <section id="contact" class="bg-white py-16 flex items-center justify-center min-h-screen">
         <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
