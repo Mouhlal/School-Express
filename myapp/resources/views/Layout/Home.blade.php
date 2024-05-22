@@ -56,7 +56,7 @@
             </li>
             <li class="mr-3">
                 @guest
-                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="">Collections</a>
+                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.collections')}}">Collections</a>
                 @endguest
               </li>
             <li class="mr-3">
