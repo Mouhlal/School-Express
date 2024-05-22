@@ -12,6 +12,12 @@ class UserController extends Controller
 {
     public function index(){
         $user = User::paginate(6);
+        $search = request('search');
+        if ($search) {
+            $user = User::where('name', 'like', "%{$search}%")
+            ->orWhere('cin', 'like', "%{$search}%")
+            ->get();;
+        }
         return view('Users.index',[
             'user' => $user
         ]);
@@ -34,7 +40,6 @@ class UserController extends Controller
         User::create($attributes);
         return redirect()->route('Users.index')->with('succes','Ajoutation with succes');
     }
-
     public function delete($id){
         User::findOrFail($id)->delete();
         return redirect()->route('Users.index')->with('delete','Suppression with succes');

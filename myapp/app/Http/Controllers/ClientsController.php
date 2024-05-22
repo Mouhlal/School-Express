@@ -6,6 +6,7 @@ use App\Models\Clients;
 use App\Models\Produits;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientsController extends Controller
 {

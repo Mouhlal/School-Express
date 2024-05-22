@@ -9,7 +9,7 @@ Route::controller(ClientsController::class)->group(function(){
     Route::get('/','index')->name('Layout.index');
     Route::get('/contact','contact')->name('Layout.contact');
     Route::get('/docs','docs')->name('Layout.docs');
-    Route::get('/dashboard','dashboard')->name('Layout.dashboard')->middleware('auth');
+    Route::get('/dashboard','dashboard')->name('Layout.dashboard')->middleware('isAdmin');
     Route::get('/calendar','calendar')->name('Layout.calendar')->middleware('auth');
     Route::get('/blank','blank')->name('Layout.blank')->middleware('auth');
     Route::get('/tables','tables')->name('Layout.tables')->middleware('auth');
@@ -29,17 +29,16 @@ Route::controller(ProduitsController::class)->group(function(){
 
 
 Route::controller(UserController::class)->group(function(){
-    Route::get('/users','index')->name('Users.index')->middleware('auth');
-    Route::get('/users/add','add')->name('Users.add')->middleware('auth');
-    Route::post('/store','store')->name('Users.store')->middleware('auth');
-    Route::get('/edit/{id}','edit')->name('Users.edit')->middleware('auth');
-    Route::post('/update/{id}','update')->name('Users.update')->middleware('auth');
-    Route::get('/delete/{id}','delete')->name('Users.delete')->middleware('auth');
+    Route::get('/users','index')->name('Users.index')->middleware('isAdmin');
+    Route::get('/users/add','add')->name('Users.add')->middleware('isAdmin');
+    Route::post('/store','store')->name('Users.store')->middleware('isAdmin');
+    Route::get('/edit/{id}','edit')->name('Users.edit')->middleware('isAdmin');
+    Route::post('/update/{id}','update')->name('Users.update')->middleware('isAdmin');
+    Route::get('/delete/{id}','delete')->name('Users.delete')->middleware('isAdmin');
 
     Route::get('/login','showLoginForm')->name('login');
     Route::post('/login','login')->name('Users.login');
 
     Route::get('/users/deconnecter','deconnecter')->name('Users.deconnecter')->middleware('auth');
     Route::get('/users/{id}','profile')->name('Users.profile')->middleware('auth');
-
 });
