@@ -36,14 +36,21 @@
         </div>
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
           <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            @auth
+            @if(auth()->user()->isAdmin)
+            <li class="mr-3">
+                <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="{{route('Users.index')}}">Employées</a>
+            </li>
+            @endif
+            @endauth
             <li class="mr-3">
                 @auth
-              <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="{{route('Users.index')}}">Employées</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Produits.index')}}">Produits</a>
               @endauth
             </li>
             <li class="mr-3">
                 @auth
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Produits.index')}}">Produits</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Users.profile',auth()->user()->id)}}">Profile</a>
               @endauth
             </li>
             <li class="mr-3">
@@ -56,6 +63,9 @@
               </li>
             <li class="mr-3">
                 <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.contact')}}">Contact</a>
+              </li>
+              <li class="mr-3">
+                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.collections')}}">Collections</a>
               </li>
           </ul>
           @guest

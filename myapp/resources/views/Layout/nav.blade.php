@@ -1,4 +1,9 @@
- <header class='flex bg-[#e54c4c] py-3 px-6 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
+<style>
+    .gradient {
+      background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+    }
+  </style>
+ <header class='flex gradient py-3 px-6 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
     <div class='flex flex-wrap items-center justify-between gap-4 w-full'>
       <a href="/"><img src="{{ asset('storage/img/logo2.png') }}" alt="logo" class='w-16 left-10 relative' />
       </a>
@@ -17,18 +22,20 @@
         </button>
 
         <ul
-          class='lg:!flex lg:gap-x-6 max-lg:space-y-3 max-lg:fixed max-lg:bg-[#151d20] max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
+          class='lg:!flex lg:gap-x-6 max-lg:space-y-3 max-lg:fixed max-lg:bg-[#e0e5e8] max-lg:w-2/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:px-10 max-lg:py-4 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
           <li class='mb-6 hidden max-lg:block'>
-            <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui-light.svg" alt="logo"
+            <a href="javascript:void(0)"><img src="{{ asset('storage/img/logo2.png') }}"  alt="logo"
                 class='w-36' />
             </a>
           </li>
           @auth
+          @if(auth()->user()->isAdmin)
           <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Users.index')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Employées
             </a>
           </li>
+          @endif
           @endauth
           @auth
           <li class='max-lg:border-b max-lg:py-3 px-3'>
@@ -41,7 +48,8 @@
             <a href="{{route('Layout.docs')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Docs
             </a>
-          </li> <li class='max-lg:border-b max-lg:py-3 px-3'>
+          </li>
+          <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Layout.collections')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Collections
             </a>
@@ -69,9 +77,8 @@
       </div>
 
       <div class='flex items-center max-lg:ml-auto'>
-        <input type="text" placeholder="Search something..."
-          class="bg-transparent border-2 border-black text-sm w-full px-5 text-black rounded-full h-9 outline-none"></input>
-
+        <input type="text" placeholder="Enter ...."
+          class=" border-2 border-black text-sm w-full px-5 bg-transparent rounded-full h-9 outline-none"></input>
         <button id="toggleOpen" class='lg:hidden ml-7'>
           <svg class="w-7 h-7 fill-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
