@@ -9,6 +9,11 @@
     <title>Collections</title>
 </head>
 <body>
+
+    @include('Layout.nav')
+
+
+
     @foreach($produits as $produit)
     <div class="relative flex flex-col mt-6 m-48 top-28 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
         <div

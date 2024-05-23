@@ -22,6 +22,7 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
     public function add(){
         return view('Users.add');
     }

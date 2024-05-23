@@ -10,10 +10,7 @@
     <meta name="description" content="Simple landind page" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-    <!--Replace with your tailwind.css once created-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-    <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+    @vite('resources/css/app.css')
     <style>
       .gradient {
         background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
@@ -21,14 +18,12 @@
     </style>
   </head>
   <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-    <!--Nav-->
     <nav id="header" class="fixed w-full z-30 top-0 text-white">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
           <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
-            <!--Icon from: http://www.potlabicons.com/ -->
 
-            SchoolGear Express
+            <img src="{{ asset('storage/img/logo2.png') }}" class="w-16 " alt="">
           </a>
         </div>
         <div class="block lg:hidden pr-4">
@@ -91,9 +86,8 @@
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <p class="uppercase tracking-loose w-full">Read our latest news</p>
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Main Hero Message to sell yourself!
+            SchoolGear Express Is Here !!!
           </h1>
           <p class="leading-normal text-2xl mb-8">
             Chez SchoolGear Express, notre objectif est de rendre l'éducation accessible

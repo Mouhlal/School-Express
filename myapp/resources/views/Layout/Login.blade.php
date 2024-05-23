@@ -1,159 +1,83 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-    <script src="../assets/js/init-alpine.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
     @vite('resources/css/app.css')
-  </head>
-  <body>
+
+</head>
+<body>
+
     @include('Layout.nav')
-    <div class="flex items-center m-24 min-h-screen p-11 bg-orange-700 dark:bg-gray-900">
-      <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <div class="flex flex-col overflow-y-auto md:flex-row">
-          <div class="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              class="object-cover w-full h-full dark:hidden"
-              src="https://source.unsplash.com/1600x900/?school-supplies"
-              alt="Fournitures Scolaires"
-            />
-            <img
-              aria-hidden="true"
-              class="hidden object-cover w-full h-full dark:block"
-              src="https://source.unsplash.com/1600x900/?school-supplies"
-              alt="Fournitures Scolaires"
-            />
-          </div>
-          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-            <div class="w-full">
 
-                <form action="{{ route('Users.login') }}" method="POST">
-    @csrf
-    <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
-      Authentification
-    </h1>
-    <!-- Affichage des erreurs -->
-    @foreach($errors->all() as $error)
-      <div class="text-red-800 p-4">
-        {{ $error }}
-      </div>
-    @endforeach
-    <!-- Champ Email -->
-    <label class="block text-sm">
-      <span class="text-gray-700 dark:text-gray-400">Email</span>
-      <input
-        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-        placeholder="Jane Doe"
-        name="email"
-        value="{{ old('email') }}"
-        required
-      />
-    </label>
-    <!-- Champ Mot de passe -->
-    <label class="block mt-4 text-sm">
-      <span class="text-gray-700 dark:text-gray-400">Mot de passe</span>
-      <input
-        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-        placeholder="***************"
-        type="password"
-        name="password"
-        value="{{ old('password') }}"
-        required
-      />
-    </label>
-    <!-- Champ Confirmation de mot de passe -->
-    <label class="block mt-4 text-sm">
-      <span class="text-gray-700 dark:text-gray-400">
-        Confirmer le mot de passe
-      </span>
-      <input
-        class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-        placeholder="***************"
-        type="password"
-        name="password_confirmation"
-        value="{{ old('password_confirmation') }}"
-        required
-      />
-    </label>
-    <div class="flex mt-6 text-sm">
-      <label class="flex items-center dark:text-gray-400">
-        <input
-          type="checkbox"
-          class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-          required
-        />
-        <span class="ml-2">
-          J'accepte la <span class="underline">politique de confidentialité</span>
-        </span>
-      </label>
-    </div>
-    <!-- Bouton de soumission -->
-    <button
-      type="submit"
-      class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-    >
-      Login
-    </button>
-  </form>
-  <!-- ... -->
-
-              <hr class="my-8" />
-              <button
-                class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5  text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
-              >
-                <svg
-                  class="w-4 h-4 mr-2"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                  />
-                </svg>
-                Github
-              </button>
-              <button
-                class="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium leading-5  text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
-              >
-                <svg
-                  class="w-4 h-4 mr-2"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"
-                  />
-                </svg>
-                Twitter
-              </button>
-             {{--  <p class="mt-4">
-                <a
-                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./login.html"
-                >
-                  Vous avez déjà un compte ? Connexion
-                </a>
-              </p> --}}
+    <div class="font-[sans-serif] text-[#333] bg-white flex items-center justify-center md:h-screen p-4">
+        <div class="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl rounded-md p-6">
+          <a href="javascript:void(0)"><img
+            src="{{ asset('storage/img/mylogo.png') }}" alt="logo" class='w-40 md:mb-4 mb-12' />
+          </a>
+          <div class="grid md:grid-cols-2 items-center gap-8">
+            <div class="max-md:order-1">
+              <img src="https://readymadeui.com/signin-image.webp" class="lg:w-11/12 w-full object-cover" alt="login-image" />
             </div>
+            <form  action="{{ route('Users.login') }}" method="POST" class="max-w-md w-full mx-auto">
+                @csrf
+                @foreach($errors->all() as $error)
+                <div class="text-red-800 p-4">
+                  {{ $error }}
+                </div>
+              @endforeach
+              <div class="mb-12">
+                <h3 class="text-4xl font-extrabold text-blue-600">Log in</h3>
+              </div>
+              <div>
+                <div class="relative flex items-center">
+                  <input  name="email" value="{{ old('email') }}"
+                   type="email" required class="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none" placeholder="Enter email" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
+                    <defs>
+                      <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                        <path d="M0 512h512V0H0Z" data-original="#000000"></path>
+                      </clipPath>
+                    </defs>
+                    <g clip-path="url(#a)" transform="matrix(1.33 0 0 -1.33 0 682.667)">
+                      <path fill="none" stroke-miterlimit="10" stroke-width="40" d="M452 444H60c-22.091 0-40-17.909-40-40v-39.446l212.127-157.782c14.17-10.54 33.576-10.54 47.746 0L492 364.554V404c0 22.091-17.909 40-40 40Z" data-original="#000000"></path>
+                      <path d="M472 274.9V107.999c0-11.027-8.972-20-20-20H60c-11.028 0-20 8.973-20 20V274.9L0 304.652V107.999c0-33.084 26.916-60 60-60h392c33.084 0 60 26.916 60 60v196.653Z" data-original="#000000"></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="mt-8">
+                <div class="relative flex items-center">
+                  <input name="password" value="{{ old('password') }}" type="password"  required class="w-full text-sm border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none" placeholder="Enter password" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
+                    <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 mt-6">
+                <div class="flex items-center">
+                  <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                  <label for="remember-me" class="ml-3 block text-sm">
+                    Remember me
+                  </label>
+                </div>
+                <div>
+                  <a href="jajvascript:void(0);" class="text-blue-600 text-sm hover:underline">
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
+              <div class="mt-12">
+                <button type="submit" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                  Login
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
-  </body>
+</body>
 </html>
+

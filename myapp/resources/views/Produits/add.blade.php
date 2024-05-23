@@ -45,6 +45,9 @@
     }
 </style>
 
+@include('Layout.nav')
+
+
 <div class="relative top-28">
     <div class="min-h-screen p-7 sm:p-12">
         <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">

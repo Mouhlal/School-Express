@@ -9,7 +9,7 @@
 </head>
 <body>
 
-{{-- @auth --}}
+    @include('Layout.nav')
 
 @if(session('drop'))
 <div class="alert alert-danger m-3">

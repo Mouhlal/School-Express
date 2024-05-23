@@ -73,7 +73,7 @@
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
                     <a href="{{route('Users.profile',auth()->user()->id)}}"class="block px-4 py-2 account-link hover:text-white">Account</a>
-                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
+                    <a href="/" class="block px-4 py-2 account-link hover:text-white">Home</a>
                     <a href="{{route('Users.deconnecter')}} " class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
                 </div>
             </div>
@@ -150,7 +150,7 @@
         var myChart = new Chart(chartOne, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Cachier', 'Stylos', 'Classeur', 'Agenda', 'Classeurs', 'Pinceaux'],
                 datasets: [{
                     label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],
@@ -188,7 +188,7 @@
         var myLineChart = new Chart(chartTwo, {
             type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Cachier', 'Stylos', 'Classeur', 'Agenda', 'Classeurs', 'Pinceaux'],
                 datasets: [{
                     label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],

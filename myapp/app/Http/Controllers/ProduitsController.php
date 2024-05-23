@@ -53,10 +53,10 @@ class ProduitsController extends Controller
             $fields['image'] = $request->file('image')->store('produits', 'public');
         }
 
-        $produits = Produits::findOrFail($id);
-        $produits->update($fields);
-
-        return redirect()->route('Produits.index')->with('success', 'Modification avec succès');
+        $produits = Produits::findOrFail($id)->update($fields);
+        return redirect()->route('Produits.index',[
+            'produits' => $produits
+        ])->with('success', 'Modification avec succès');
     }
 
 

@@ -12,6 +12,9 @@
 
 <body>
 
+    @include('Layout.nav')
+
+
 <div class="max-w-4xl px-4 py-10 p-11 sm:px-6 lg:px-8 mx-auto">
     <div class="bg-white rounded-xl shadow p-4 sm:p-7">
       <div class="mb-8">
@@ -52,7 +55,7 @@
           <div class="sm:col-span-9">
             <div class="sm:flex">
               <input value="{{ $produits->name }}" name="name" type="text" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500" id="name">
-             
+
             </div>
           </div>
           <!-- End Col -->
