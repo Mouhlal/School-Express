@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     @vite('resources/css/app.css')
     <title>Products</title>
 </head>
@@ -44,7 +45,7 @@
                 </select>
             </div>
             <div>
-                <button type="submit" class="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:shadow-outline">
+                <button type="submit" class="py-2 px-4 bg-[#d53369] hover:bg-black text-white font-semibold rounded-lg shadow-md focus:outline-none focus:shadow-outline">
                     Filter
                 </button>
             </div>
@@ -66,11 +67,11 @@
 
               <div>
                 <div class="inline-flex gap-x-2">
-                  <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" href="#">
+                  <a href="{{route('Produits.index')}}" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" href="#">
                     View all
                   </a>
 
-                  <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="{{route('Produits.ajouter')}}">
+                  <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#d53369] text-white hover:bg-black disabled:opacity-50 disabled:pointer-events-none" href="{{route('Produits.ajouter')}}">
                     <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                     Create
                   </a>
@@ -130,6 +131,14 @@
                     </div>
                   </th>
 
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
+                        Updated by
+                      </span>
+                    </div>
+                  </th>
+
                   <th scope="col" class="px-6 py-3 text-start"  colspan="5">
                     <div class="flex items-center gap-x-2">
                       <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
@@ -182,6 +191,11 @@
                   <td class="size-px whitespace-nowrap">
                     <div class="px-6 py-3">
                       <span class="text-sm text-gray-600"> {{$product->prix}}$ </span>
+                    </div>
+                  </td>
+                  <td class="size-px whitespace-nowrap">
+                    <div class="px-6 py-3">
+                      <span class="text-sm text-gray-600"> {{ $product->updatedBy ? $product->updatedBy->name : 'N/A' }}</span>
                     </div>
                   </td>
 

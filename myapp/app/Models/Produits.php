@@ -17,4 +17,8 @@ class Produits extends Model
     public function Clients(){
         return $this->hasMany(Clients::class);
     }
+    public function updatedBy()
+{
+    return $this->belongsTo(User::class, 'updated_by');
+}
 }

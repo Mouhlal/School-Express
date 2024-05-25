@@ -7,6 +7,7 @@
     <title>
       SchoolGear Express
     </title>
+    <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     <meta name="description" content="Simple landind page" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
@@ -97,7 +98,7 @@
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            SchoolGear Express Is Here !!!
+            SchoolGear Express Is Here 
           </h1>
           <p class="leading-normal text-2xl mb-8">
             Chez SchoolGear Express, notre objectif est de rendre l'éducation accessible
@@ -111,7 +112,7 @@
         </div>
         <!--Right Col-->
         <div class=" md:w-3/5 py-6 text-center">
-          <img class="w-full md:w-4/5 z-50" src="" />
+          <img class="w-full md:w-96 md:relative md:left-56 z-99" src="{{asset('storage/img/logowhite.png')}}" />
         </div>
       </div>
     </div>

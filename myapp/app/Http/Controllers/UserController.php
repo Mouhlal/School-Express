@@ -73,7 +73,25 @@ class UserController extends Controller
             'profile' => $profile
         ]);
     }
-
+    public function editProfile($id){
+        $my_profile = User::findOrFail($id);
+        return view('Users.editProfile',[
+            'my_prodile'=>$my_profile
+        ]);
+    }
+    public function saveProfile(Request $request,$id){
+        $profile_validateur = $request->validate([
+            'image' => 'nullable|image',
+            'name' => 'nullable|string',
+            'cin' => 'nullable',
+            "email" => "email|required|unique:users",
+        ]);
+        if($request->hasFile('image')){
+            $profile_validateur['image'] = $request->file('image')->store('users','public');
+        }
+        User::findOrFail($id)->update($profile_validateur);
+        return redirect()->route('Users.Profile')->with('profile','Profile Updated');
+    }
     public function showLoginForm()
     {
         return view('Layout.Login');

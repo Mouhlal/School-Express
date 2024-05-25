@@ -40,4 +40,7 @@ Route::controller(UserController::class)->group(function(){
 
     Route::get('/users/deconnecter','deconnecter')->name('Users.deconnecter')->middleware('auth');
     Route::get('/users/{id}','profile')->name('Users.profile')->middleware('auth');
+
+    Route::get('/users/editProfile/{id}','editProfile')->name('Users.editProfile');
+    Route::put('/users/saveProfile/{id}','saveProfile')->name('Users.saveProfile')->middleware('auth');
 });

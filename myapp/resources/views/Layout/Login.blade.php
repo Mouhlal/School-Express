@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login Page</title>
+    <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     @vite('resources/css/app.css')
-
 </head>
+<style>
+    .gradient {
+        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+      }
+</style>
 <body>
 
     @include('Layout.nav')
@@ -29,7 +34,7 @@
                 </div>
               @endforeach
               <div class="mb-12">
-                <h3 class="text-4xl font-extrabold text-blue-600">Log in</h3>
+                <h3 class="text-4xl font-extrabold text-[#d53369]">Log in</h3>
               </div>
               <div>
                 <div class="relative flex items-center">
@@ -58,19 +63,19 @@
               </div>
               <div class="flex items-center justify-between gap-2 mt-6">
                 <div class="flex items-center">
-                  <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                  <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-[#d53369] border-gray-300 rounded" />
                   <label for="remember-me" class="ml-3 block text-sm">
                     Remember me
                   </label>
                 </div>
                 <div>
-                  <a href="jajvascript:void(0);" class="text-blue-600 text-sm hover:underline">
+                  <a href="jajvascript:void(0);" class="text-[#d53369] text-sm hover:underline">
                     Forgot Password?
                   </a>
                 </div>
               </div>
               <div class="mt-12">
-                <button type="submit" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                <button type="submit" class="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white gradient focus:outline-none">
                   Login
                 </button>
               </div>

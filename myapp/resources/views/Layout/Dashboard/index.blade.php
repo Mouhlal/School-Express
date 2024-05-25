@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Admin Template</title>
+    <title> Admin Page</title>
     <meta name="author" content="David Grzyb">
+    <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     <meta name="description" content="">
-
-    <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    @vite('resources/css/app.css')
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -23,7 +22,7 @@
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block  shadow-xl">
         <div class="p-6">
             <a href="{{route('Layout.dashboard')}}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
             <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
@@ -58,13 +57,13 @@
         </nav>
         <a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
-            Upgrade to Pro!
+           back!
         </a>
     </aside>
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+        <header class="w-full items-center  bg-white py-2 px-6 hidden sm:flex">
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">

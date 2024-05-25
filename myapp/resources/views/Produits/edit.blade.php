@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
-    <title>Edit Product</title>
+    <title>Modifier les Produits</title>
 </head>
-<script src="./node_modules/preline/dist/preline.js"></script>
 
 <body>
 
@@ -55,7 +55,9 @@
           <div class="sm:col-span-9">
             <div class="sm:flex">
               <input value="{{ $produits->name }}" name="name" type="text" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500" id="name">
-
+                @error('name')
+                    {{$message}}
+                @enderror
             </div>
           </div>
           <!-- End Col -->
@@ -68,7 +70,10 @@
           <!-- End Col -->
 
           <div class="sm:col-span-9">
-            <input id="description" value="{{ $produits->description }}" name="description" type="text" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500" placeholder="Product description">
+            <input value="{{ $produits->description }}" name="description" type="text" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500" placeholder="Product description">
+            @error('description')
+                {{$message}}
+            @enderror
           </div>
           <!-- End Col -->
 
@@ -81,7 +86,10 @@
 
           <div class="sm:col-span-9">
             <div class="sm:flex">
-              <input id="prix" name="prix" value="{{ $produits->prix }}" type="number" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500">
+              <input name="prix" value="{{ $produits->prix }}" type="number" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500">
+                @error('prix')
+                    {{$message}}
+                @enderror
             </div>
           </div>
           <!-- End Col -->
@@ -96,6 +104,9 @@
           <div class="sm:col-span-9">
             <div class="sm:flex">
               <input id="quantite" name="quantite" value="{{ $produits->quantite }}" type="number" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500">
+              @error('quantite')
+                {{$message}}
+              @enderror
             </div>
           </div>
           <!-- End Col -->
@@ -108,13 +119,16 @@
           <!-- End Col -->
 
           <div class="sm:col-span-9">
-            <select name="categories_id" id="categories_id" class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500">
+            <select name="categories_id"  class="form-control py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}" {{ $produits->categories_id == $category->id ? 'selected' : '' }}>
                         {{ $category->type }}
                     </option>
                 @endforeach
             </select>
+            @error('categories_id')
+            {{$message}}
+          @enderror
           </div>
           <!-- End Col -->
         </div>
@@ -126,7 +140,7 @@
                 Cancel
               </button>
           </a>
-          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700">
+          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#d53369] text-white hover:bg-black">
             Save changes
           </button>
         </div>

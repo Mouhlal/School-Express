@@ -5,23 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Produits;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProduitsController extends Controller
 {
-    public function index(Request $request)
-    {
-            $category_id = $request->input('category_id');
-            $categories = Categories::all();
 
-            if ($category_id) {
-                $produits = Produits::where('categories_id', $category_id)->with('categories')->get();
-            } else {
-                $produits = Produits::with('categories')->get();
-            }
+public function index(Request $request)
+{
+    $category_id = $request->input('category_id');
+    $categories = Categories::all();
 
-            return view('Produits.index', compact('produits', 'categories', 'category_id'));
-
+    if ($category_id) {
+        $produits = Produits::where('categories_id', $category_id)->with(['categories', 'updatedBy'])->get();
+    } else {
+        $produits = Produits::with(['categories', 'updatedBy'])->get();
     }
+
+    return view('Produits.index', compact('produits', 'categories', 'category_id'));
+}
+
 
     public function delete($id)
     {
@@ -40,6 +42,7 @@ class ProduitsController extends Controller
     }
     public function update(Request $request, $id)
     {
+
         $fields = $request->validate([
             'name' => 'nullable|string',
             'image' => 'nullable|image',
@@ -53,10 +56,12 @@ class ProduitsController extends Controller
             $fields['image'] = $request->file('image')->store('produits', 'public');
         }
 
-        $produits = Produits::findOrFail($id)->update($fields);
-        return redirect()->route('Produits.index',[
-            'produits' => $produits
-        ])->with('success', 'Modification avec succès');
+        $produits = Produits::findOrFail($id);
+        $fields['updated_by'] = auth()->id();
+        Log::info('User ID updating product: ' . auth()->id()); // Log the user ID
+        $produits->update($fields);
+
+        return redirect()->route('Produits.index')->with('success', 'Modification avec succès');
     }
 
 
@@ -74,13 +79,12 @@ class ProduitsController extends Controller
             'name' => 'required|string',
             'image' => 'required|image',
             'description' => 'required|string',
-            'prix' => 'required|integer',
-            'quantite' => 'required|numeric',
+            'prix' => 'required|numeric',
+            'quantite' => 'required|integer',
             'categories_id' => 'required|exists:categories,id'
         ]);
 
         $attributes['image'] = $request->file('image')->store('produits', 'public');
-
         Produits::create($attributes);
 
         return redirect()->route('Produits.index')->with('add', 'Ajoutation avec succès');

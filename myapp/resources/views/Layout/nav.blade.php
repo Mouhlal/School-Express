@@ -31,6 +31,15 @@
           @auth
           @if(auth()->user()->isAdmin)
           <li class='max-lg:border-b max-lg:py-3 px-3'>
+            <a href="{{route('Layout.dashboard')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
+                Dashboard
+            </a>
+          </li>
+          @endif
+          @endauth
+          @auth
+          @if(auth()->user()->isAdmin)
+          <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Users.index')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Employées
             </a>
@@ -73,10 +82,17 @@
             </a>
           </li>
           @endauth
+          @guest
+          <li class='max-lg:border-b max-lg:py-3 px-3'>
+            <a href='{{route('login')}}' class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
+              Login
+            </a>
+          </li>
+          @endguest
         </ul>
       </div>
 
-      <div class='flex items-center max-lg:ml-auto'>
+      <div class='flex items-center max-lg:ml-auto md:hidden'>
         <input type="text" placeholder="Enter ...."
           class=" border-2 border-black text-sm w-full px-5 bg-transparent rounded-full h-9 outline-none"></input>
         <button id="toggleOpen" class='lg:hidden ml-7'>
