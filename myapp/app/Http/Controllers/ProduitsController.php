@@ -9,21 +9,18 @@ use Illuminate\Support\Facades\Log;
 
 class ProduitsController extends Controller
 {
+    public function index(Request $request)
+    {
+        $category_id = $request->input('category_id');
+        $categories = Categories::all();
 
-public function index(Request $request)
-{
-    $category_id = $request->input('category_id');
-    $categories = Categories::all();
-
-    if ($category_id) {
-        $produits = Produits::where('categories_id', $category_id)->with(['categories', 'updatedBy'])->get();
-    } else {
-        $produits = Produits::with(['categories', 'updatedBy'])->get();
+        if ($category_id) {
+            $produits = Produits::where('categories_id', $category_id)->with(['categories', 'updatedBy'])->get();
+        } else {
+            $produits = Produits::with(['categories', 'updatedBy'])->get();
+        }
+        return view('Produits.index', compact('produits', 'categories', 'category_id'));
     }
-
-    return view('Produits.index', compact('produits', 'categories', 'category_id'));
-}
-
 
     public function delete($id)
     {
@@ -58,7 +55,7 @@ public function index(Request $request)
 
         $produits = Produits::findOrFail($id);
         $fields['updated_by'] = auth()->id();
-        Log::info('User ID updating product: ' . auth()->id()); // Log the user ID
+        //Log::info('User ID updating product: ' . auth()->id()); // Log the user ID
         $produits->update($fields);
 
         return redirect()->route('Produits.index')->with('success', 'Modification avec succès');

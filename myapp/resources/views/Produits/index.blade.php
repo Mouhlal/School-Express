@@ -195,7 +195,7 @@
                   </td>
                   <td class="size-px whitespace-nowrap">
                     <div class="px-6 py-3">
-                      <span class="text-sm text-gray-600"> {{ $product->updatedBy ? $product->updatedBy->name : 'N/A' }}</span>
+                      <span class="text-sm text-gray-600">{{ $product->updatedBy ? $product->updatedBy->name : 'N/A' }}</span>
                     </div>
                   </td>
 

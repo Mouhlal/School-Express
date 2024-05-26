@@ -21,7 +21,6 @@
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
-
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block  shadow-xl">
         <div class="p-6">
             <a href="{{route('Layout.dashboard')}}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
@@ -137,11 +136,8 @@
 
     </div>
 
-    <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-    <!-- ChartJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 
     <script>
