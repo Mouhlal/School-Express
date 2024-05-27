@@ -10,11 +10,11 @@ Route::controller(ClientsController::class)->group(function(){
     Route::get('/contact','contact')->name('Layout.contact');
     Route::get('/docs','docs')->name('Layout.docs');
     Route::get('/dashboard','dashboard')->name('Layout.dashboard')->middleware('isAdmin');
-    Route::get('/calendar','calendar')->name('Layout.calendar')->middleware('auth');
-    Route::get('/blank','blank')->name('Layout.blank')->middleware('auth');
-    Route::get('/tables','tables')->name('Layout.tables')->middleware('auth');
-    Route::get('/forms','forms')->name('Layout.forms')->middleware('auth');
-    Route::get('/tabs','tabs')->name('Layout.tabs')->middleware('auth');
+    Route::get('/calendar','calendar')->name('Layout.calendar')->middleware('isAdmin');
+    Route::get('/blank','blank')->name('Layout.blank')->middleware('isAdmin');
+    Route::get('/tables','tables')->name('Layout.tables')->middleware('isAdmin');
+    Route::get('/forms','forms')->name('Layout.forms')->middleware('isAdmin');
+    Route::get('/tabs','tabs')->name('Layout.tabs')->middleware('isAdmin');
     Route::get('/collections','collections')->name('Layout.collections');
 });
 
@@ -42,4 +42,3 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/users/{id}','profile')->name('Users.profile')->middleware('auth');
 });
 
-Route::get('/users/editProfile/{id}',[UserController::class,'modifier'])->name('Users.mod');

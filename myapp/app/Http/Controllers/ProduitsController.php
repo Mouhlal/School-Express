@@ -55,7 +55,7 @@ class ProduitsController extends Controller
 
         $produits = Produits::findOrFail($id);
         $fields['updated_by'] = auth()->id();
-        //Log::info('User ID updating product: ' . auth()->id()); // Log the user ID
+
         $produits->update($fields);
 
         return redirect()->route('Produits.index')->with('success', 'Modification avec succès');

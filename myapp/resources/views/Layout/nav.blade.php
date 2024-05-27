@@ -5,7 +5,7 @@
   </style>
  <header class='flex gradient py-3 px-6 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
     <div class='flex flex-wrap items-center justify-between gap-4 w-full'>
-      <a href="/"><img src="{{ asset('storage/img/logo2.png') }}" alt="logo" class='w-16 left-10 relative' />
+      <a href="/"><img src="{{ asset('storage/img/logo2.png') }}" alt="logo" class='w-12 md:w-16 md:left-10 relative' />
       </a>
 
       <div id="collapseMenu"

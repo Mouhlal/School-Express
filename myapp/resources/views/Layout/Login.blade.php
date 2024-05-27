@@ -63,7 +63,7 @@
               </div>
               <div class="flex items-center justify-between gap-2 mt-6">
                 <div class="flex items-center">
-                  <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-[#d53369] border-gray-300 rounded" />
+                  <input id="remember-me" required name="remember-me" type="checkbox" class="h-4 w-4 shrink-0 text-[#d53369] border-gray-300 rounded" />
                   <label for="remember-me" class="ml-3 block text-sm">
                     Remember me
                   </label>

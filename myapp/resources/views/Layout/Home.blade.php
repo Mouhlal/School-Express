@@ -65,9 +65,7 @@
             <li class="mr-3">
                 <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.contact')}}">Contact</a>
               </li>
-              <li class="mr-3">
-                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.collections')}}">Collections</a>
-              </li>
+             
           </ul>
           @guest
           <a href="{{route('login')}}">
@@ -98,7 +96,7 @@
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            SchoolGear Express Is Here 
+            SchoolGear Express Is Here
           </h1>
           <p class="leading-normal text-2xl mb-8">
             Chez SchoolGear Express, notre objectif est de rendre l'éducation accessible

@@ -122,7 +122,6 @@
                       </span>
                     </div>
                   </th>
-
                   <th scope="col" class="px-6 py-3 text-start">
                     <div class="flex items-center gap-x-2">
                       <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
@@ -130,7 +129,7 @@
                       </span>
                     </div>
                   </th>
-
+                  @if(auth()->user()->isAdmin)
                   <th scope="col" class="px-6 py-3 text-start">
                     <div class="flex items-center gap-x-2">
                       <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
@@ -138,7 +137,7 @@
                       </span>
                     </div>
                   </th>
-
+                  @endif
                   <th scope="col" class="px-6 py-3 text-start"  colspan="5">
                     <div class="flex items-center gap-x-2">
                       <span class="text-xs font-semibold uppercase tracking-wide text-gray-800">
@@ -193,12 +192,13 @@
                       <span class="text-sm text-gray-600"> {{$product->prix}}$ </span>
                     </div>
                   </td>
+                  @if(auth()->user()->isAdmin)
                   <td class="size-px whitespace-nowrap">
                     <div class="px-6 py-3">
                       <span class="text-sm text-gray-600">{{ $product->updatedBy ? $product->updatedBy->name : 'N/A' }}</span>
                     </div>
                   </td>
-
+                  @endif
                   <td class="size-px whitespace-nowrap">
                     <div class="px-6 py-3">
                         <a href="{{route('Produits.edit' , $product->id )}}">
