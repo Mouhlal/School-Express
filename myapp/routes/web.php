@@ -34,7 +34,6 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/edit/{id}','edit')->name('Users.edit')->middleware('isAdmin');
     Route::post('/update/{id}','update')->name('Users.update')->middleware('isAdmin');
     Route::get('/delete/{id}','delete')->name('Users.delete')->middleware('isAdmin');
-
     Route::get('/login','showLoginForm')->name('login');
     Route::post('/login','login')->name('Users.login');
 

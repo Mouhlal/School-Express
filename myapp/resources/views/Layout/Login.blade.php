@@ -19,18 +19,18 @@
 
     <div class="font-[sans-serif] text-[#333] bg-white flex items-center justify-center md:h-screen p-4">
         <div class="shadow-[0_2px_16px_-3px_rgba(6,81,237,0.3)] max-w-6xl rounded-md p-6">
-          <a href="javascript:void(0)"><img
+          <a href="#"><img
             src="{{ asset('storage/img/mylogo.png') }}" alt="logo" class='w-40 md:mb-4 mb-12' />
           </a>
           <div class="grid md:grid-cols-2 items-center gap-8">
             <div class="max-md:order-1">
-              <img src="https://readymadeui.com/signin-image.webp" class="lg:w-11/12 w-full object-cover" alt="login-image" />
+              <img src="{{ asset('storage/img/login.png') }}" class="lg:w-11/12 w-full object-cover rounded-lg" alt="login-image" />
             </div>
             <form  action="{{ route('Users.login') }}" method="POST" class="max-w-md w-full mx-auto">
                 @csrf
                 @foreach($errors->all() as $error)
-                <div class="text-red-800 p-4">
-                  {{ $error }}
+                <div class="text-red-800 p-4 text-center">
+                  <h2>{{ $error }}</h2>
                 </div>
               @endforeach
               <div class="mb-12">

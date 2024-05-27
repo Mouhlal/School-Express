@@ -7,27 +7,39 @@
     <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
     @vite('resources/css/app.css')
     <title>Products</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 
     @include('Layout.nav')
 
 @if(session('drop'))
-<div class="alert alert-danger m-3">
-    {{session('drop')}}
-</div>
+    <script>
+Swal.fire({
+  html: "<h3>{{session('drop')}}</h3>",
+  icon: "success"
+});
+
+    </script>
 @endif
 
 @if(session('add'))
-<div class="alert alert-info m-3">
-    {{session('add')}}
-</div>
+    <script>
+   Swal.fire({
+  html: "<h3>{{session('add')}}</h3>",
+  icon: "success"
+});
+    </script>
 @endif
 
 @if(session('succes'))
-<div class="alert alert-succes m-3">
-    {{session('succes')}}
-</div>
+<script>
+Swal.fire({
+  html: "<h3>{{session('succes')}}</h3>",
+  icon: "success"
+});
+</script>
 @endif
 
 

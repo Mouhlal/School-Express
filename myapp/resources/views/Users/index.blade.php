@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{asset('storage/img/logowhite.png')}}" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Employées</title>
 </head>
 <body>
@@ -14,23 +14,31 @@
     @include('Layout.nav')
 
     @if (session('succes'))
-    <div class="alert alert-success m-3">
-        {{ session('succes') }}
-    </div>
+    <script>
+        Swal.fire({
+  html: "<h3>{{session('succes')}}</h3>",
+  icon: "success"
+});
+    </script>
     @endif
 
     @if (session('update'))
-    <div class="alert alert-success m-3">
-        {{ session('update') }}
-    </div>
+    <script>
+    Swal.fire({
+    html: "<h3>{{session('update')}}</h3>",
+    icon: "success"
+        });
+    </script>
     @endif
 
     @if (session('delete'))
-    <div class="alert alert-danger m-3">
-        {{ session('delete') }}
-    </div>
-    @endif
-
+<script>
+    Swal.fire({
+    html: "<h3>{{session('delete')}}</h3>",
+    icon: "success"
+    });
+</script>
+ @endif
 
 
       <div class="p-12">
@@ -228,7 +236,7 @@
                             </span>
                           </button>
                       </a>
-                      <a href="{{route('Users.delete' , $use->id )}}">
+                      <a href="{{ route('Users.delete', $use->id) }}">
                         <button>
                             Delete
                         </button>
@@ -241,12 +249,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="flex items-center justify-between p-4 border-t border-blue-gray-50">
-             {{--  <p class="text-sm text-gray-600">
-                {{ $use->appends(['search' => $search])->links() }}
-              </p> --}}
-
-            </div>
+           
           </div>
       </div>
 </body>
