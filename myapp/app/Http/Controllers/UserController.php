@@ -41,10 +41,12 @@ class UserController extends Controller
         return redirect()->route('Users.index')->with('succes','Ajoutation with succes');
     }
 
-    public function delete($id){
-    User::findOrFail($id)->delete();
-    return redirect()->route('Users.index')->with('delete','Suppression with succes');
+    public function delete($id)
+    {
+        User::findOrFail($id)->delete();
+        return redirect()->route('Users.index')->with('delete', 'Suppression with succes');
     }
+
 
     public function edit($id){
         $users = User::findOrFail($id);

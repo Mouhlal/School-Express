@@ -34,7 +34,7 @@
         <p class="text-gray-800 text-sm">{{$profile->description}}</p>
 
         <div class="mt-8">
-            <a href="/">
+            <a href="/users">
                 <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">Back</button>
             </a>
         </div>
