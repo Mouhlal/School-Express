@@ -58,6 +58,9 @@
               <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.docs')}}">Docs</a>
             </li>
             <li class="mr-3">
+                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.faq')}}">Faq</a>
+              </li>
+            <li class="mr-3">
                 @guest
                 <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.collections')}}">Collections</a>
                 @endguest
@@ -65,7 +68,7 @@
             <li class="mr-3">
                 <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{route('Layout.contact')}}">Contact</a>
               </li>
-             
+
           </ul>
           @guest
           <a href="{{route('login')}}">
@@ -104,9 +107,11 @@
              à des prix compétitifs. Nous croyons que chaque élève mérite les meilleurs
              outils pour atteindre ses objectifs académiques.
           </p>
-          <button type="button" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Get Started
-          </button>
+          <a href="/">
+              <button type="button" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Get Started
+              </button>
+          </a>
         </div>
         <!--Right Col-->
         <div class=" md:w-3/5 py-6 text-center">
@@ -471,9 +476,11 @@
           </div>
           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div class="flex items-center justify-start">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Go
-              </button>
+              <a href="/docs">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Go
+                  </button>
+              </a>
             </div>
           </div>
         </div>
@@ -484,7 +491,7 @@
                 Service Client
               </p>
               <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum
+                Kloop
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
                 La satisfaction de nos clients est notre priorité.
@@ -493,9 +500,11 @@
           </div>
           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Go
-              </button>
+              <a href="/docs">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Go
+                  </button>
+              </a>
             </div>
           </div>
         </div>
@@ -514,9 +523,11 @@
           </div>
           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div class="flex items-center justify-end">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Go
-              </button>
+              <a href="/docs">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Go
+                  </button>
+              </a>
             </div>
           </div>
         </div>
@@ -544,9 +555,11 @@
             </div>
             <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
               <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Show
-                </button>
+                <a href="/collections">
+                    <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                      Show
+                    </button>
+                </a>
               </div>
             </div>
           </div>
@@ -564,9 +577,11 @@
             </div>
             <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
               <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                 Show
-                </button>
+                <a href="/collections">
+                    <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                     Show
+                    </button>
+                </a>
               </div>
             </div>
           </div>
@@ -583,9 +598,11 @@
             </div>
             <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
               <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Show
-                </button>
+                <a href="/collections">
+                    <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                      Show
+                    </button>
+                </a>
               </div>
             </div>
           </div>
@@ -624,17 +641,18 @@
       <h3 class="my-4 text-3xl leading-tight">
         Rejoignez notre programme de parrainage et bénéficiez de réductions exclusives pour vous et vos amis.
       </h3>
-      <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-        Action!
-      </button>
+      <a href="/login">
+          <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            Action!
+          </button>
+      </a>
     </section>
     <!--Footer-->
     <footer class="bg-white">
       <div class="container mx-auto px-8">
         <div class="w-full flex flex-col md:flex-row py-6">
           <div class="flex-1 mb-6 text-black">
-            <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-              <!--Icon from: http://www.potlabicons.com/ -->
+            <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
               SchoolGear Ex
             </a>
           </div>
@@ -645,10 +663,10 @@
                 <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
+                <a href="/contact" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
+                <a href="/contact" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
               </li>
             </ul>
           </div>
@@ -656,10 +674,10 @@
             <p class="uppercase text-gray-500 md:mb-6">Legal</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
+                <a href="/docs" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
+                <a href="/docs" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
               </li>
             </ul>
           </div>
@@ -681,13 +699,13 @@
             <p class="uppercase text-gray-500 md:mb-6">Company</p>
             <ul class="list-reset mb-6">
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
+                <a href="/" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
+                <a href="/" class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
+                <a href="/contact" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
               </li>
             </ul>
           </div>

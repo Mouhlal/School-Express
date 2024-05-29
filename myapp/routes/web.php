@@ -9,6 +9,7 @@ Route::controller(ClientsController::class)->group(function(){
     Route::get('/','index')->name('Layout.index');
     Route::get('/contact','contact')->name('Layout.contact');
     Route::get('/docs','docs')->name('Layout.docs');
+    Route::get('/faq','faq')->name('Layout.faq');
     Route::get('/dashboard','dashboard')->name('Layout.dashboard')->middleware('isAdmin');
     Route::get('/calendar','calendar')->name('Layout.calendar')->middleware('isAdmin');
     Route::get('/blank','blank')->name('Layout.blank')->middleware('isAdmin');
@@ -34,9 +35,8 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/edit/{id}','edit')->name('Users.edit')->middleware('isAdmin');
     Route::post('/update/{id}','update')->name('Users.update')->middleware('isAdmin');
     Route::get('/delete/{id}','delete')->name('Users.delete')->middleware('isAdmin');
-    Route::get('/login','showLoginForm')->name('login');
-    Route::post('/login','login')->name('Users.login');
-
+    Route::get('/login','showLoginForm')->name('login')->middleware('guest');
+    Route::post('/login','login')->name('Users.login')->middleware('guest');
     Route::get('/users/deconnecter','deconnecter')->name('Users.deconnecter')->middleware('auth');
     Route::get('/users/{id}','profile')->name('Users.profile')->middleware('auth');
 });

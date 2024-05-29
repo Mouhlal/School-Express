@@ -31,7 +31,7 @@
           @auth
           @if(auth()->user()->isAdmin)
           <li class='max-lg:border-b max-lg:py-3 px-3'>
-            <a href="{{route('Layout.dashboard')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
+            <a href="{{route('Layout.dashboard')}}" class='text-black  hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Dashboard
             </a>
           </li>
@@ -56,6 +56,11 @@
           <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Layout.docs')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Docs
+            </a>
+          </li>
+          <li class='max-lg:border-b max-lg:py-3 px-3'>
+            <a href="{{route('Layout.faq')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
+                Faq
             </a>
           </li>
           <li class='max-lg:border-b max-lg:py-3 px-3'>
@@ -93,10 +98,8 @@
       </div>
 
       <div class='flex items-center max-lg:ml-auto md:hidden'>
-        <input type="text" placeholder="Enter ...."
-          class=" border-2 border-black text-sm w-full px-5 bg-transparent rounded-full h-9 outline-none"></input>
         <button id="toggleOpen" class='lg:hidden ml-7'>
-          <svg class="w-7 h-7 fill-white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-7 h-7 fill-black" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
               clip-rule="evenodd"></path>

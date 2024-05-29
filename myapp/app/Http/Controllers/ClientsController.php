@@ -20,6 +20,9 @@ class ClientsController extends Controller
     public function docs(){
         return view('Layout.docs');
     }
+    public function faq(){
+        return view('Layout.faq');
+    }
     public function contact(){
         return view('Layout.contact');
     }
