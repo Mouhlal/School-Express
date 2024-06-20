@@ -63,11 +63,13 @@
                 Faq
             </a>
           </li>
+          @guest
           <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Layout.collections')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Collections
             </a>
           </li>
+          @endguest
           <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a href="{{route('Layout.contact')}}" class='text-black hover:text-white text-base flex items-center hover:underline transition duration-300'>
                 Contact

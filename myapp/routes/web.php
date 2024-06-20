@@ -16,7 +16,7 @@ Route::controller(ClientsController::class)->group(function(){
     Route::get('/tables','tables')->name('Layout.tables')->middleware('isAdmin');
     Route::get('/forms','forms')->name('Layout.forms')->middleware('isAdmin');
     Route::get('/tabs','tabs')->name('Layout.tabs')->middleware('isAdmin');
-    Route::get('/collections','collections')->name('Layout.collections');
+    Route::get('/collections','collections')->name('Layout.collections')->middleware('guest');
 });
 
 Route::controller(ProduitsController::class)->group(function(){

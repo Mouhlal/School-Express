@@ -14,6 +14,16 @@
 
     @include('Layout.nav')
 
+    @if(session('yes'))
+    <script>
+        Swal.fire({
+          html: "<h3>{{session('yes')}}</h3>",
+          icon: "success"
+        });
+
+            </script>
+    @endif
+
 @if(session('drop'))
     <script>
 Swal.fire({

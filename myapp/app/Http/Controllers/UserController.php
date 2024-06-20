@@ -111,7 +111,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('Produits.index')->with('yes', 'Bienvenue');
+            return redirect()->route('Produits.index')->with('yes', 'Bienvenue sur la page !');
         } else {
             return back()->withErrors([
                 'email' => 'Email / mot de passe incorrect, veuillez réessayer !',
