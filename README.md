@@ -1,6 +1,6 @@
 # 🎓 School-Express  
 
-**School-Express** est une application web de gestion scolaire développée avec **Laravel** et **MySQL**.qui permet de gérer efficacement les stocks de produits et les informations des employés au sein d’un établissement (école, entreprise, etc.).
+**School-Express** est une application web de gestion du stocks développée avec **Laravel** et **MySQL**.qui permet de gérer efficacement les stocks de produits et les informations des employés au sein d’un entreprise (école, établissement , etc.).
 
 ---
 
