@@ -1,6 +1,6 @@
 # 🎓 School-Express  
 
-**School-Express** est une application web de gestion scolaire développée avec **Laravel** et **MySQL**. Elle permet aux administrateurs de gérer les professeurs, les matières, les groupes et les emplois du temps, tout en offrant aux étudiants un accès à leurs cours et notes.  
+**School-Express** est une application web de gestion scolaire développée avec **Laravel** et **MySQL**.qui permet de gérer efficacement les stocks de produits et les informations des employés au sein d’un établissement (école, entreprise, etc.).
 
 ---
 
