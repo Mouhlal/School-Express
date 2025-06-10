@@ -6,12 +6,11 @@
 
 ## ✨ Fonctionnalités principales  
 
-✔️ **Gestion des utilisateurs** (administrateurs, professeurs, étudiants)  
-✔️ **Attribution des matières aux enseignants**  
-✔️ **Gestion des groupes et des emplois du temps**  
-✔️ **Ajout et consultation des notes des étudiants**  
+✔️ **Gestion des utilisateurs** (Employées)  
+✔️ **Gestion des produits**  
+✔️ **Ajout et consultation des catégories**  
 ✔️ **Authentification sécurisée avec Laravel**  
-✔️ **Interface d'administration pour la gestion scolaire**  
+✔️ **Interface d'administration pour l'admin**  
 
 ---
 
